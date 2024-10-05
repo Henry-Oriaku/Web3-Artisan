@@ -19,6 +19,7 @@ export default function ClientLayout({ children }: { children: any }) {
                 const redirectTo = response.data?.code == apiResponseCode.ACCOUNT_NOT_FOUND ? webRoutes.completeSignup : webRoutes.dashboard;
                 router.push(redirectTo);
             } catch (error) {
+                console.log(error);
 
             }
         }
