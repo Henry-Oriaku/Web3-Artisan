@@ -19,8 +19,8 @@ export async function POST(
       }
     });
 
-    return successResponse("User Account Updated", newUser, 200);
+    return successResponse({ message: "User Account Updated" });
   } catch (error) {
-    return successResponse("Failed to fetch Products", error);
+    return successResponse({ message: "Failed to fetch Products" });
   }
 }
