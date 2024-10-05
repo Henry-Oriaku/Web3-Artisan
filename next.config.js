@@ -3,7 +3,6 @@ const withLess = require('next-with-less');
 
 /** @type {import('next').NextConfig} */
 module.exports = withLess({
-  concurrency: 1,
   webpack: (config) => {
     config.resolve.fallback = { fs: false, net: false, tls: false };
     return config;
