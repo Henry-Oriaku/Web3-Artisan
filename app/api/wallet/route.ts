@@ -1,11 +1,10 @@
 
 // 'use server'
-import { failureResponse, successResponse, validateRequest, withValidation } from 'lib/api';
-import { prisma } from '../../../lib/prisma';
-import { NextRequest, NextResponse } from 'next/server'
-import { NextApiRequest } from 'next';
-import z from "zod"
 import apiResponseCode from 'constants/apiResponseCode';
+import { failureResponse, successResponse, withValidation } from 'lib/api';
+import { NextRequest } from 'next/server';
+import z from "zod";
+import { prisma } from '../../../lib/prisma';
 
 export async function POST(
     request: NextRequest
@@ -27,7 +26,7 @@ export async function POST(
                 message: "",
                 data: newUser,
                 status: 200,
-                code: apiResponseCode.WALLET_NOT_FOUND,
+                code: apiResponseCode.ACCOUNT_NOT_FOUND,
             });
         } catch (error) {
             return failureResponse({ error: "Failed to Validate Wallet", detail: String(error).toString() });
