@@ -8,12 +8,12 @@ export async function POST(
   req: Request
 ) {
   try {
-    const { first_name, last_name, email, address } = await req.json();
+    const { name, email, address, services } = await req.json();
 
     const newUser = prisma.user.create({
       data: {
         walletAddress: address,
-        name: `${first_name} ${last_name}`,
+        name: name,
         email: email,
         isAdmin: false
       }

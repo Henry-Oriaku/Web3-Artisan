@@ -35,7 +35,8 @@
     "react-dom": "19.0.0-rc-3208e73e-20240730",
     "sonner": "^1.5.0",
     "viem": "2.x",
-    "wagmi": "^2.12.16"
+    "wagmi": "^2.12.16",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",

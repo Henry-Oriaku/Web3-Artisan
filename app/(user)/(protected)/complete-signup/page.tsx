@@ -6,7 +6,8 @@ import GradientBg from 'components/gradient-bg';
 import AddEditService from 'components/user/service/add-edit-service';
 import ServiceCard from 'components/user/service/service-card';
 import { ConnectKitButton } from 'connectkit'
-import { useState } from 'react';
+import { validateForm } from 'helpers/validator';
+import { useEffect, useState } from 'react';
 
 export default function Page() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -21,16 +22,24 @@ export default function Page() {
   function addService(service: Service) {
     updateProfile('services', [...profile.services, service]);
   }
+
+  useEffect(() => {
+    validateForm('saveProfile', '#profileForm');
+  }, [profile])
   return (
     <section className="flex">
       <div className="flex-1 bg-white p-10">
         <Title>Complete Signup</Title>
 
-        <div className="flex gap-3 flex-col mt-8">
+        <div className="flex gap-3 flex-col mt-8" id='saveProfile'>
 
           <ConnectKitButton />
-          <Input onChange={(ev) => updateProfile('name', ev.target.value)} className="p-4" variant="outlined" placeholder='Full Name' />
-          <Input onChange={(ev) => updateProfile('email', ev.target.value)} className="p-4" variant="outlined" placeholder='Enter Your Email' />
+          <div>
+            <Input required value={profile.name} onChange={(ev) => updateProfile('name', ev.target.value)} className="p-4" variant="outlined" placeholder='Full Name' />
+          </div>
+          <div>
+            <Input required value={profile.email} onChange={(ev) => updateProfile('email', ev.target.value)} className="p-4" variant="outlined" placeholder='Enter Your Email' />
+          </div>
           <div className="flex justify-end">
             <Button size='middle' onClick={() => setModalVisible(true)} icon={<PlusIcon />} iconPosition='end'>Add Service</Button>
           </div>
@@ -40,8 +49,8 @@ export default function Page() {
           <Button className="p-6">Submit</Button>
         </div>
       </div>
-      <div className=" sm:block hidden flex-1">
-        <GradientBg />
+      <div className="sm:block hidden flex-1">
+        <GradientBg className="h-screen w-full "/>
       </div>
 
       <Modal title={modalTitle} open={modalVisible} okText='Close' onOk={() => setModalVisible(false)} onCancel={() => setModalVisible(false)} footer={(_, { OkBtn }) => (

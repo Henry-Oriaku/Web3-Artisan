@@ -8,22 +8,28 @@ datasource db {
 }
 
 model User {
-  id            Int      @id @default(autoincrement())
+  id            Int       @id @default(autoincrement())
   name          String
-  email         String   @unique
-  password      String   @default("")
-  createdAt     DateTime @default(now())
+  email         String    @unique
+  password      String    @default("")
+  createdAt     DateTime  @default(now())
   walletAddress String
-  isAdmin       Boolean  @default(false)
+  isAdmin       Boolean   @default(false)
+  Service       Service[]
+
+  @@map("users")
 }
 
-model Product {
+model Service {
   id          Int      @id @default(autoincrement())
-  name        String
+  title       String
   description String
-  quantity    Int
-  isActive    Boolean
+  image       String
   price       Decimal  @db.Decimal(10, 2) // Define precision and scale (10 digits, 2 decimal places)
-  images      Json
+  negotiable  Boolean
   createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+
+  @@map("services")
 }

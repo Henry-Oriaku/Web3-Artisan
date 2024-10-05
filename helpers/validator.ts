@@ -1,8 +1,8 @@
-function validateForm(callbackElementId: string): { [key: string]: string } {
+function validateForm(callbackElementId: string, parentElementSelector = ''): { [key: string]: string } {
   let errors: { [key: string]: string } = {}; // Define the type explicitly
-  ["select", "textarea", "input"].forEach((selector) => { 
+  ["select", "textarea", "input"].forEach((selector) => {
     // Use forEach instead of map for iteration
-    document.querySelectorAll(selector).forEach((element) => {
+    document.querySelectorAll(`${parentElementSelector} ${selector}`.trim()).forEach((element) => {
       const error = validateInput(element);
       if (error) {
         errors[(element as HTMLInputElement).name] = error;
@@ -41,14 +41,14 @@ function validateInput(element: Element): string | null {
  * @param {Element} element - The input element related to the error.
  */
 function handleErrorDisplay(error: string | null, element: Element): void {
-  
+
   let errorElement = element.parentElement?.querySelector(".text-red-700.text-sm.py-2");
   if (error) {
     element.classList.add("border-red-700");
 
     if (!errorElement) {
       errorElement = document.createElement("div");
-      errorElement.classList.add("text-red-700","text-sm", "py-2");
+      errorElement.classList.add("text-red-700", "text-sm", "py-2");
       element.parentElement?.appendChild(errorElement);
     }
     if (errorElement) errorElement.textContent = error;
@@ -57,5 +57,6 @@ function handleErrorDisplay(error: string | null, element: Element): void {
     errorElement?.remove();
   }
 }
+
 
 export { validateForm };

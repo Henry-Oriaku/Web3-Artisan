@@ -12,13 +12,16 @@ export default function ClientLayout({ children }: { children: any }) {
 
     useAccountEffect({
         async onConnect({ address }) {
-            axios.post(apiUrl.checkAddress, {
-                address
-            }).then((response) => {
-                const redirectTo = response.status != 200 ? webRoutes.completeSignup : webRoutes.dashboard;
+            try {
+                const response = await axios.post(apiUrl.checkAddress, {
+                    address
+                });
+                const redirectTo = !!response.status?.status ? webRoutes.completeSignup : webRoutes.dashboard;
                 router.push(redirectTo);
-            });
-        },
+            } catch (error) {
+
+            }
+        }
     })
     return (
         <>

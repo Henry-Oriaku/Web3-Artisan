@@ -1,7 +1,6 @@
 import { CartProvider } from 'components/cart/cart-context';
 import { WelcomeToast } from 'components/welcome-toast';
 import { GeistSans } from 'geist/font/sans';
-import { getCart } from 'lib/shopify';
 import { ensureStartsWith } from 'lib/utils';
 import { cookies } from 'next/headers';
 import { ReactNode } from 'react';

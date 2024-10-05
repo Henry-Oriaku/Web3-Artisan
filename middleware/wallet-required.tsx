@@ -8,9 +8,9 @@ export default function WalletRequired({ children }: { children: ReactNode }) {
     const { address, isConnected } = useAccount();
     useEffect(() => {
         if (!address && !isConnected) {
-            router.push('/', { query: { wallet: false } });
+            router.push('/?wallet=true');
         }
-    }, [address,isConnected])
+    }, [address, isConnected])
     return (
         <>
             {isConnected && children}

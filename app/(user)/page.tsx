@@ -1,6 +1,7 @@
 'use client'
 import { ArrowRightIcon, WalletIcon } from "@heroicons/react/24/outline";
 import { Button } from "antd";
+import GradientBg from "components/gradient-bg";
 import NavBar from "components/navbar";
 import { ConnectKitButton } from "connectkit";
 import webRoutes from "constants/webRoutes";
@@ -70,29 +71,7 @@ export default function HomePage() {
         <main className="grow">
           <div className="pb-12">
             <section className="relative before:absolute before:inset-0 before:pointer-events-none before:-z-10 before:bg-gray-100 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-gray-900/10 after:to-transparent z-10">
-              <div className="absolute inset-0 bg-[linear-gradient(145deg,var(--tw-gradient-stops))] from-violet-500/25 to-gray-200/0 to-50% pointer-events-none -z-10" aria-hidden="true"> <svg className="absolute -top-[200px] left-1/2 -translate-x-1/2 -ml-[520px]" xmlns="http://www.w3.org/2000/svg" width="674" height="596" fill="none">
-                <g filter="url(#sh1a)">
-                  <path fill="url(#sh1b)" fill-rule="evenodd" d="m93 93 488 329.105L303.687 503 93 93Z" clip-rule="evenodd">
-                  </path>
-                </g>
-                <defs>
-                  <linearGradient id="sh1b" x1="-2.47" x2="149.396" y1="227.957" y2="586.484" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#FB7185" stop-opacity=".32">
-                    </stop>
-                    <stop offset="1" stop-color="#FB7185" stop-opacity=".01">
-                    </stop>
-                  </linearGradient>
-                  <filter id="sh1a" width="672.843" height="594.843" x=".578" y=".578" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix">
-                    </feFlood>
-                    <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape">
-                    </feBlend>
-                    <feGaussianBlur result="effect1_foregroundBlur_2006_5" stdDeviation="46.211">
-                    </feGaussianBlur>
-                  </filter>
-                </defs>
-              </svg>
-              </div>
+              <GradientBg />
               <div className="max-w-6xl mx-auto px-4 sm:px-6">
                 <div className="relative pt-28 md:pt-36 pb-12 md:pb-16">
                   <div className="max-w-[620px] flex flex-col">
@@ -112,7 +91,7 @@ export default function HomePage() {
                     <div className="mt-8">
                       {!isConnected
                         ? <ConnectKitButton /> :
-                        (<Link href={webRoutes.dashboard} className=" text-gray-50 bg-zinc-800 p-6 hover:bg-gray-900 group">Visit Dashboard </Link>)}
+                        (<Link href={webRoutes.dashboard} className="rounded text-gray-50 bg-zinc-800 p-3 hover:bg-gray-900 group">Visit Dashboard </Link>)}
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-[520px] pointer-events-none -z-10" aria-hidden="true"> <svg xmlns="http://www.w3.org/2000/svg" width="1132" height="641" fill="none">
@@ -169,7 +148,7 @@ export default function HomePage() {
                     </a>
                       <a className="group relative w-7 h-7 overflow-hidden rounded-full border-2 border-white z-10" href="https://x.com/DavidePacilio" target="_blank" style={{ outline: 'none' }}>
                         <img className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" src="https://cruip.com/wp-content/themes/cruip-2/dist/images/x-davide.jpg" alt="Davide's profile image" width="24" height="24" decoding="async" loading="lazy" /> </a> </span>
-                    </li>
+                    </li> */}
                     <li> <a className="text-gray-500 hover:underline" href="#newsletter/" style={{ outline: 'none' }}>Newsletter</a>
                     </li>
                     <li> <a className="text-gray-500 hover:underline" href="#about-us/" style={{ outline: 'none' }}>About us</a>
@@ -177,7 +156,7 @@ export default function HomePage() {
                     <li> <a className="text-gray-500 hover:underline" href="#terms/" style={{ outline: 'none' }}>Terms &amp; License</a>
                     </li>
                     <li> <a className="text-gray-500 hover:underline" href="#privacy-policy/" style={{ outline: 'none' }}>Privacy Policy</a>
-                    </li> */}
+                    </li>
                   </ul>
                 </div>
 
