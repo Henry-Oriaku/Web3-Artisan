@@ -14,7 +14,7 @@ export async function POST(
     const validations = z.object({
         address: z.string().min(5)
     })
-    return await withValidation(request, 'POST', validations, async ({ address }) => {
+    return withValidation(request, 'POST', validations, async ({ address }) => {
 
         try {
 

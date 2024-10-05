@@ -1,5 +1,3 @@
-import { CartProvider } from 'components/cart/cart-context';
-import { WelcomeToast } from 'components/welcome-toast';
 import { GeistSans } from 'geist/font/sans';
 import { ensureStartsWith } from 'lib/utils';
 import { cookies } from 'next/headers';
@@ -7,7 +5,6 @@ import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
 import '../globals.css';
 import { Input } from '@headlessui/react';
-import { AdminNavbar } from 'components/layout/navbar/admin-navbar';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
