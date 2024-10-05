@@ -1,5 +1,5 @@
 'use client'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React, { ReactNode, useEffect } from 'react'
 import { useAccount } from 'wagmi';
 
@@ -10,10 +10,10 @@ export default function WalletRequired({ children }: { children: ReactNode }) {
         if (!address && !isConnected) {
             router.push('/', { query: { wallet: false } });
         }
-    }, [])
+    }, [address,isConnected])
     return (
         <>
-            {children}
+            {isConnected && children}
         </>
     )
 }

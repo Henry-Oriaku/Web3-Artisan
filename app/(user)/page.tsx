@@ -3,6 +3,8 @@ import { ArrowRightIcon, WalletIcon } from "@heroicons/react/24/outline";
 import { Button } from "antd";
 import NavBar from "components/navbar";
 import { ConnectKitButton } from "connectkit";
+import webRoutes from "constants/webRoutes";
+import Link from "next/link";
 import { useAccount } from "wagmi";
 
 // export const metadata = {
@@ -26,7 +28,7 @@ export default function HomePage() {
         <header id="site-header" className="absolute top-2 md:top-6 w-full z-30">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="flex items-center justify-between gap-3 h-14 rounded-2xl px-3 backdrop-blur-sm bg-white bg-opacity-80">
-              <div> <a className="block" href="https://cruip.com/" rel="home" style={{ outline: 'none' }}> <span className="sr-only">Cruip</span>
+              <div> <a className="block" href="#" rel="home" style={{ outline: 'none' }}> <span className="sr-only">Cruip</span>
                 <svg width="28" height="28" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fill-rule="evenodd">
                     <path d="M28 14a3.5 3.5 0 10-7 0 3.5 3.5 0 007 0" fill="#D1D5DB">
@@ -51,11 +53,11 @@ export default function HomePage() {
                   <nav id="header-nav" className="grid grid-rows-[0fr] rounded-xl [&amp;.menu-is-open]:grid-rows-[1fr] [&amp;.menu-is-open]:visible absolute inset-x-0 top-full mt-1 z-50 [&amp;.menu-is-open]:bg-white [&amp;.menu-is-open]:shadow-lg shadow-black/[.04] transition-all duration-300 [&amp;>div]:opacity-0 [&amp;.menu-is-open>div]:opacity-100">
                     <div className="overflow-hidden transition-opacity duration-300">
                       <ul className="text-sm py-1.5 px-3 divide-y divide-gray-100">
-                        <li className="relative"> <a href="https://cruip.com/x/" className="flex text-gray-800 hover:underline py-2 px-2" style={{ outline: 'none' }}>Cruip X</a> <span className="uppercase text-emerald-500 text-[10px] font-semibold absolute top-2 left-16">New</span>
+                        <li className="relative"> <a href="#x/" className="flex text-gray-800 hover:underline py-2 px-2" style={{ outline: 'none' }}>Cruip X</a> <span className="uppercase text-emerald-500 text-[10px] font-semibold absolute top-2 left-16">New</span>
                         </li>
-                        <li> <a href="https://cruip.com/docs/" className="flex text-gray-800 hover:underline py-2 px-2" style={{ outline: 'none' }}>Documentation</a>
+                        <li> <a href="#docs/" className="flex text-gray-800 hover:underline py-2 px-2" style={{ outline: 'none' }}>Documentation</a>
                         </li>
-                        <li> <a className="flex text-gray-800 hover:underline py-2 px-2" href="https://cruip.com/login/" style={{ outline: 'none' }}>Login</a>
+                        <li> <a className="flex text-gray-800 hover:underline py-2 px-2" href="#login/" style={{ outline: 'none' }}>Login</a>
                         </li>
                       </ul>
                     </div>
@@ -100,7 +102,7 @@ export default function HomePage() {
                       <div className="inline-flex mb-6">
                         <div className="flex items-center gap-2 text-sm text-gray-500 p-1 pr-3 rounded-full bg-white bg-opacity-80 shadow backdrop-blur">
                           <div className="flex -space-x-2 -ml-0.5">
-                            <img decoding="async" fetchPriority="high" className="rounded-full border-2 border-white box-content" src="https://cruip.com/wp-content/themes/cruip-2/dist/images/dev-01.jpg" width="20" height="20" alt="Alessio Santo" /> <img decoding="async" fetchPriority="high" className="rounded-full border-2 border-white box-content" src="https://cruip.com/wp-content/themes/cruip-2/dist/images/dev-02.jpg" width="20" height="20" alt="Arnob Dada" /> <img decoding="async" fetchPriority="high" className="rounded-full border-2 border-white box-content" src="https://cruip.com/wp-content/themes/cruip-2/dist/images/dev-03.jpg" width="20" height="20" alt="Ryan Chew" /> <img decoding="async" fetchPriority="high" className="rounded-full border-2 border-white box-content" src="https://cruip.com/wp-content/themes/cruip-2/dist/images/dev-04.jpg" width="20" height="20" alt="Adrian" />
+                            <img decoding="async" fetchPriority="high" className="rounded-full border-2 border-white box-content" src="#wp-content/themes/cruip-2/dist/images/dev-01.jpg" width="20" height="20" alt="Alessio Santo" /> <img decoding="async" fetchPriority="high" className="rounded-full border-2 border-white box-content" src="#wp-content/themes/cruip-2/dist/images/dev-02.jpg" width="20" height="20" alt="Arnob Dada" /> <img decoding="async" fetchPriority="high" className="rounded-full border-2 border-white box-content" src="#wp-content/themes/cruip-2/dist/images/dev-03.jpg" width="20" height="20" alt="Ryan Chew" /> <img decoding="async" fetchPriority="high" className="rounded-full border-2 border-white box-content" src="#wp-content/themes/cruip-2/dist/images/dev-04.jpg" width="20" height="20" alt="Adrian" />
                           </div>
                           <span>Trusted by <strong className="font-normal text-gray-900">60K+</strong> developers.</span>
                         </div>
@@ -110,7 +112,7 @@ export default function HomePage() {
                     <div className="mt-8">
                       {!isConnected
                         ? <ConnectKitButton /> :
-                        (<Button className=" text-gray-50 bg-zinc-800 p-6 hover:bg-gray-900 group">Visit Dashboard </Button>)}
+                        (<Link href={webRoutes.dashboard} className=" text-gray-50 bg-zinc-800 p-6 hover:bg-gray-900 group">Visit Dashboard </Link>)}
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-[520px] pointer-events-none -z-10" aria-hidden="true"> <svg xmlns="http://www.w3.org/2000/svg" width="1132" height="641" fill="none">
@@ -131,7 +133,7 @@ export default function HomePage() {
                   </svg>
                   </div>
                   <div className="hidden sm:block absolute left-[600px] -top-[196px] -rotate-[16deg] pointer-events-none -z-10">
-                    <img decoding="async" fetchPriority="high" className="max-w-none" src="https://cruip.com/wp-content/themes/cruip-2/dist/images/hero-illustration.png" width="1051" height="740" alt="Preview of some Tailwind templates" />
+                    <img decoding="async" fetchPriority="high" className="max-w-none" src="#wp-content/themes/cruip-2/dist/images/hero-illustration.png" width="1051" height="740" alt="Preview of some Tailwind templates" />
                   </div>
                 </div>
               </div>
@@ -142,7 +144,7 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="pb-12">
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-12 gap-x-6">
-                <div> <a className="inline-block mb-2" href="https://cruip.com/" rel="home" style={{ outline: 'none' }}> <span className="sr-only">Cruip</span>
+                <div> <a className="inline-block mb-2" href="#" rel="home" style={{ outline: 'none' }}> <span className="sr-only">Cruip</span>
                   <svg width="28" height="28" xmlns="http://www.w3.org/2000/svg">
                     <g fill="none" fill-rule="evenodd">
                       <path d="M28 14a3.5 3.5 0 10-7 0 3.5 3.5 0 007 0" fill="#D1D5DB">
@@ -151,31 +153,31 @@ export default function HomePage() {
                       </path>
                     </g>
                   </svg> </a>
-                  <div className="text-gray-500 text-[13px]">©<a href="https://cruip.com/" style={{ outline: 'none' }}>Cruip<br /> Tailwind CSS templates</a>
+                  <div className="text-gray-500 text-[13px]">©<a href="#" style={{ outline: 'none' }}> Web3 Artisans</a>
                   </div>
                 </div>
                 <div>
                   <h4 className="text-sm text-gray-900 font-medium mb-3">Company</h4>
                   <ul className="text-sm space-y-3 md:space-y-2">
-                    <li className="mb-2 flex items-center"> <a className="text-gray-500 hover:underline" href="https://cruip.com/affiliate-program/" style={{ outline: 'none' }}>Affiliate program</a> <svg className="-mt-0.5 ml-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                    {/* <li className="mb-2 flex items-center"> <a className="text-gray-500 hover:underline" href="#affiliate-program/" style={{ outline: 'none' }}>Affiliate program</a> <svg className="-mt-0.5 ml-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
                       <path fill="#FACC15" d="m6 0 1.7 4.3L12 6 7.7 7.7 6 12 4.3 7.7 0 6l4.3-1.7L6 0Z" opacity=".8">
                       </path>
                     </svg>
                     </li>
-                    <li className="flex items-center gap-2"> <span className="text-gray-500">Follow us on X</span> <span className="flex -space-x-2 -ml-0.5"> <a className="group relative w-7 h-7 overflow-hidden rounded-full border-2 border-white" href="https://x.com/pacovitiello" target="_blank" style={{ outline: 'none' }}><div className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style={{ backgroundImage: "url('https://cruip.com/wp-content/themes/cruip-2/dist/images/x-pasquale.jpg')" }} role="img" aria-label="Pasquale's profile image">
+                    <li className="flex items-center gap-2"> <span className="text-gray-500">Follow us on X</span> <span className="flex -space-x-2 -ml-0.5"> <a className="group relative w-7 h-7 overflow-hidden rounded-full border-2 border-white" href="https://x.com/pacovitiello" target="_blank" style={{ outline: 'none' }}><div className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style={{ backgroundImage: "url('#wp-content/themes/cruip-2/dist/images/x-pasquale.jpg')" }} role="img" aria-label="Pasquale's profile image">
                     </div>
                     </a>
                       <a className="group relative w-7 h-7 overflow-hidden rounded-full border-2 border-white z-10" href="https://x.com/DavidePacilio" target="_blank" style={{ outline: 'none' }}>
                         <img className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" src="https://cruip.com/wp-content/themes/cruip-2/dist/images/x-davide.jpg" alt="Davide's profile image" width="24" height="24" decoding="async" loading="lazy" /> </a> </span>
                     </li>
-                    <li> <a className="text-gray-500 hover:underline" href="https://cruip.com/newsletter/" style={{ outline: 'none' }}>Newsletter</a>
+                    <li> <a className="text-gray-500 hover:underline" href="#newsletter/" style={{ outline: 'none' }}>Newsletter</a>
                     </li>
-                    <li> <a className="text-gray-500 hover:underline" href="https://cruip.com/about-us/" style={{ outline: 'none' }}>About us</a>
+                    <li> <a className="text-gray-500 hover:underline" href="#about-us/" style={{ outline: 'none' }}>About us</a>
                     </li>
-                    <li> <a className="text-gray-500 hover:underline" href="https://cruip.com/terms/" style={{ outline: 'none' }}>Terms &amp; License</a>
+                    <li> <a className="text-gray-500 hover:underline" href="#terms/" style={{ outline: 'none' }}>Terms &amp; License</a>
                     </li>
-                    <li> <a className="text-gray-500 hover:underline" href="https://cruip.com/privacy-policy/" style={{ outline: 'none' }}>Privacy Policy</a>
-                    </li>
+                    <li> <a className="text-gray-500 hover:underline" href="#privacy-policy/" style={{ outline: 'none' }}>Privacy Policy</a>
+                    </li> */}
                   </ul>
                 </div>
 
