@@ -10,5 +10,6 @@ interface Service {
 interface UserProfile {
     name: string;
     email: string;
-    services: Service[]
+    walletAddress: `0x${string}`
+    // services: Service[]
 }

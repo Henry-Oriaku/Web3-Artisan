@@ -1,0 +1,27 @@
+.searchBox {
+  border: 1px solid #000;
+  background: #fff;
+
+  /* height: 70px; */
+}
+.searchBox .searchInput {
+  outline-width: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.searchBox ::placeholder {
+  color: #000;
+}
+.searchBox button {
+}
+.searchIcon {
+  margin-left: 15px;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+/* ARTISAN CARD */
+.artisanImage {
+  position: relative;
+}

@@ -5,8 +5,8 @@ import apiResponseCode from 'constants/apiResponseCode';
 import apiUrl from 'constants/apiUrl';
 import webRoutes from 'constants/webRoutes';
 import { useRouter } from 'next/navigation';
-import { useAccount } from 'wagmi';
 import { useEffect } from 'react';
+import { useAccount } from 'wagmi';
 
 export default function ClientLayout({ children }: { children: any }) {
     const router = useRouter();
@@ -16,7 +16,7 @@ export default function ClientLayout({ children }: { children: any }) {
         const checkAccount = async () => {
             if (isConnected && address) {
                 try {
-                    const response = await axios.post(apiUrl.checkAddress, {
+                    const response = await axios.post(apiUrl.checkWallet, {
                         address
                     });
                     const redirectTo = response.data?.code === apiResponseCode.ACCOUNT_NOT_FOUND

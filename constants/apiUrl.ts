@@ -1,7 +1,8 @@
 export default Object.freeze({
-    checkAddress: toUrl('address')
+    checkWallet: toUrl('api', 'wallet'),
+    updateProfile: toUrl('api', 'profile'),
 })
 
-export function toUrl(...paths: any[]) {
+function toUrl(...paths: any[]) {
     return paths.join('/');
 }
