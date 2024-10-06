@@ -8,7 +8,7 @@ import Paragraph from 'antd/es/typography/Paragraph'
 import Link from 'next/link'
 import webRoutes from 'constants/webRoutes'
 import './override.css'
-export default function ArtisanCard({ artisan }) {
+export default function ArtisanCard({ artisan }: { artisan: any }) {
     return (
         <div className={`override-ant-image h-auto sm:w-60 w-full`}>
             <div className="relative w-full">
