@@ -1,26 +1,33 @@
 
 'use server'
-import { successResponse } from 'lib/api';
+import { successResponse, withValidation } from 'lib/api';
 import { prisma } from '../../../lib/prisma';
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+import { z } from 'zod';
 
 export async function POST(
-  req: Request
+  request: NextRequest
 ) {
-  try {
-    const { name, email, address, services } = await req.json();
 
-    const newUser = prisma.user.create({
-      data: {
-        walletAddress: address,
-        name: name,
-        email: email,
-        isAdmin: false
-      }
-    });
+  const validations = z.object({
+    name: z.string(),
+    email: z.string().email(),
+    walletAddress: z.string(),
+  })
+  return withValidation(request, 'POST', validations, async ({ name, email, walletAddress }: { [x: string]: string }) => {
+    try {
+      const newUser = prisma.user.create({
+        data: {
+          walletAddress,
+          name,
+          email,
+          isAdmin: false
+        }
+      });
 
-    return successResponse({ message: "User Account Updated" });
-  } catch (error) {
-    return successResponse({ message: "Failed to fetch Products" });
-  }
+      return successResponse({ message: "User Account Updated" });
+    } catch (error) {
+      return successResponse({ message: "Failed to UPdate" });
+    }
+  })
 }
