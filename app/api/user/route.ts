@@ -18,9 +18,9 @@ export async function POST(
     try {
       const newUser = prisma.user.create({
         data: {
-          walletAddress,
-          name,
-          email,
+          walletAddress: walletAddress || '',
+          name: name || '',
+          email: email || '',
           isAdmin: false
         }
       });
