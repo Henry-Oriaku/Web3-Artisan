@@ -209,7 +209,7 @@ export default function HomePage() {
                   <p>Work with the largest network of independent professionals and get things done—from quick turnaround.</p>
                 </div>
                 <ConnectKitButton.Custom children={({ isConnected, show }) => {
-                  return <button key='artisan' onClick={() => show()} className="bg-zinc-800 p-3 text-white rounded-full px-6">Get Started ↗</button>
+                  return <button key='artisan' onClick={() => show ? show() : () => { }} className="bg-zinc-800 p-3 text-white rounded-full px-6">Get Started ↗</button>
                 }} />
               </div>
 
@@ -220,7 +220,7 @@ export default function HomePage() {
                   <p>Work with the largest network of independent professionals and get things done—from quick turnaround.</p>
                 </div>
                 <ConnectKitButton.Custom children={({ isConnected, show }) => {
-                  return <button key='finder' onClick={() => show()} className="bg-zinc-800 p-3 text-white rounded-full px-6">Get Started ↗</button>
+                  return <button key='finder' onClick={() => show ? show() : () => { }} className="bg-zinc-800 p-3 text-white rounded-full px-6">Get Started ↗</button>
                 }} />
 
               </div>

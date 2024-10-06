@@ -21,7 +21,7 @@ export function failureResponse({ error, detail, status = 400 }: { error: string
     return NextResponse.json({ error, detail, status: false }, { status });
 }
 
-export async function withValidation(request: NextRequest, method: string, schema: ZodTypeAny, handler: (data: { [x: string]: string }) => Promise<NextResponse>) {
+export async function withValidation(request: NextRequest, method: string, schema: ZodTypeAny, handler: (data: { [key: string]: string }) => Promise<NextResponse>) {
     if (request.method !== method) {
         return failureResponse({ error: 'Invalid Method', status: 405 })
     }

@@ -14,7 +14,7 @@ export async function POST(
     email: z.string().email(),
     walletAddress: z.string(),
   })
-  return withValidation(request, 'POST', validations, async ({ name, email, walletAddress }: { [x: string]: string }) => {
+  return withValidation(request, 'POST', validations, async ({ name, email, walletAddress }) => {
     try {
       const newUser = prisma.user.create({
         data: {
