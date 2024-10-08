@@ -1,4 +1,13 @@
 'use client';
+
+import React from 'react'
+
+export default function Layout() {
+  return (
+    <div>DAshboard</div>
+  )
+}
+
 // import SideBarLinks from '@/components/sidebarLinks/sidebarLinks';
 // import Avatar from '@/components/Avatar/Avatar';
 
