@@ -16,6 +16,6 @@ export default function withWallet(WrappedComponent: any) {
         if (!isConnected) {
             return null
         }
-        return < WrappedComponent {...props} />
+        return <WrappedComponent {...props} />
     }
 }
