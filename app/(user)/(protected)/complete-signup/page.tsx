@@ -27,7 +27,7 @@ export default function Page() {
     setProfile({ ...profile, [key]: value })
   }
   function saveProfile() {
-    axios.post(apiUrl.updateProfile, profile).then((response) => {
+    axios.post(apiUrl.user, profile).then((response) => {
       router.push(webRoutes.dashboard)
     }).catch((error) => {
       console.log(error);
@@ -45,17 +45,17 @@ export default function Page() {
       <div className="flex-1 bg-white p-10">
         <Title>Complete Signup</Title>
 
-        <div className="flex gap-4 flex-col mt-8" id='saveProfileBtn'>
+        <div className="flex gap-4 flex-col mt-8" id='profileForm'>
 
           <ConnectKitButton />
           <div>
-            <Input required value={profile.name} onChange={(ev) => updateProfile('name', ev.target.value)} className="p-4" variant="outlined" placeholder='Full Name' />
+            <Input autoComplete='true' name='name' required value={profile.name} onChange={(ev) => updateProfile('name', ev.target.value)} className="p-4" variant="outlined" placeholder='Full Name' />
           </div>
           <div>
-            <Input required value={profile.email} onChange={(ev) => updateProfile('email', ev.target.value)} className="p-4" variant="outlined" placeholder='Enter Your Email' />
+            <Input autoComplete='true' name='email' type='email' required value={profile.email} onChange={(ev) => updateProfile('email', ev.target.value)} className="p-4" variant="outlined" placeholder='Enter Your Email' />
           </div>
 
-          <Button className="text-base p-6 mt-4 bg-zinc-800 text-white" onClick={() => saveProfile()}>Submit</Button>
+          <Button className="text-base p-6 mt-4 bg-zinc-800 text-white" onClick={() => saveProfile()} id="saveProfileBtn">Submit</Button>
         </div>
       </div>
       <div className="sm:block hidden flex-1">

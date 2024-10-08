@@ -26,7 +26,7 @@ export async function POST(
                 message: "",
                 data: newUser,
                 status: 200,
-                code: apiResponseCode.ACCOUNT_NOT_FOUND,
+                code: apiResponseCode[newUser ? 'OK' : 'ACCOUNT_NOT_FOUND'],
             });
         } catch (error) {
             return failureResponse({ error: "Failed to Validate Wallet", detail: String(error).toString() });

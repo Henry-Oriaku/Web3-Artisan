@@ -1,6 +1,6 @@
 export default Object.freeze({
     checkWallet: toUrl('api', 'wallet'),
-    updateProfile: toUrl('api', 'profile'),
+    user: toUrl('api', 'user'),
 })
 
 function toUrl(...paths: any[]) {

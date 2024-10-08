@@ -10,13 +10,13 @@ export async function POST(
 ) {
 
   const validations = z.object({
-    name: z.string(),
+    name: z.string().min(3),
     email: z.string().email(),
-    walletAddress: z.string(),
+    walletAddress: z.string().min(3),
   })
   return withValidation(request, 'POST', validations, async ({ name, email, walletAddress }) => {
     try {
-      const newUser = prisma.user.create({
+      const newUser = await prisma.user.create({
         data: {
           walletAddress: walletAddress || '',
           name: name || '',
@@ -24,7 +24,6 @@ export async function POST(
           isAdmin: false
         }
       });
-
       return successResponse({ message: "User Account Updated" });
     } catch (error) {
       return successResponse({ message: "Failed to UPdate" });

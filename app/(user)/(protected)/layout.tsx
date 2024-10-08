@@ -1,10 +1,11 @@
-import WalletRequired from 'middleware/wallet-required'
+'use client'
+import withWallet from 'middleware/with-wallet'
 import React, { ReactNode } from 'react'
 
-export default function Layout({ children }: { children: ReactNode }) {
+function Layout({ children }: { children: ReactNode }) {
     return (
-        <WalletRequired>
             {children}
-        </WalletRequired>
     )
 }
+
+export default withWallet(Layout);
