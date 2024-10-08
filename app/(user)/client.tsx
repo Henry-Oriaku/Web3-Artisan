@@ -4,12 +4,13 @@ import axios from 'axios';
 import apiResponseCode from 'constants/apiResponseCode';
 import apiUrl from 'constants/apiUrl';
 import webRoutes from 'constants/webRoutes';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useAccount } from 'wagmi';
 
 export default function ClientLayout({ children }: { children: any }) {
     const router = useRouter();
+    const currentPath = usePathname();
     const { address, isConnected } = useAccount();
 
     useEffect(() => {
@@ -22,7 +23,10 @@ export default function ClientLayout({ children }: { children: any }) {
                     const redirectTo = response.data?.code === apiResponseCode.ACCOUNT_NOT_FOUND
                         ? webRoutes.completeSignup
                         : webRoutes.dashboard;
-                    router.push(redirectTo);
+
+                    if (currentPath != redirectTo) {
+                        router.push(redirectTo);
+                    }
                 } catch (error) {
                     console.log(error);
                 }
