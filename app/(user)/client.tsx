@@ -23,6 +23,9 @@ export default function ClientLayout({ children }: { children: any }) {
                     const redirectTo = response.data?.code === apiResponseCode.ACCOUNT_NOT_FOUND
                         ? webRoutes.completeSignup
                         : webRoutes.dashboard;
+                    if (response.data?.code !== apiResponseCode.ACCOUNT_NOT_FOUND) {
+                        localStorage.setItem('user', JSON.stringify(response.data.data))
+                    }
 
                     if (currentPath != redirectTo) {
                         router.push(redirectTo);

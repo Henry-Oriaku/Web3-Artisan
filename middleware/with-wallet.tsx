@@ -9,12 +9,12 @@ export default function withWallet(WrappedComponent: any) {
         const { address, isConnected } = useAccount();
         useEffect(() => {
             if (!address && !isConnected) {
-                router.push('/?wallet=true');
+                // router.push('/?wallet=true');
             }
         }, [address, isConnected])
 
         if (!isConnected) {
-            return null
+            // return null
         }
         return <WrappedComponent {...props} />
     }

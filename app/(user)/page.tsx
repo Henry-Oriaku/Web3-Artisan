@@ -104,7 +104,7 @@ export default function HomePage() {
                 </svg> </a>
               </div>
               <div className="inline-flex items-center">
-                <NavBar menus={menus} />
+                <NavBar menus={menus} />``
                 <div className="ml-6">
                   <ConnectKitButton showAvatar showBalance />
                   {/* <Button className=" text-gray-50 bg-gray-800 hover:bg-gray-900 group">Link Wallet <WalletIcon /></Button> */}

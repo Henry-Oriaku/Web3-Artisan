@@ -1,0 +1,56 @@
+.container {
+  margin: 0;
+  margin-top: 0;
+  position: relative;
+}
+
+.background {
+  height: 150px;
+  background: var(--bs-blue);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.header {
+  
+}
+.header .avatar{
+   border:3px solid #fff;
+   display:block;
+}
+.dataContainer {
+  padding: 25px;
+  padding-top: 80px;
+  width: 100%;
+}
+.tabs {
+  display: flex;
+  padding: 20px;
+  gap: 30px;
+  z-index: 10;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  display: block;
+  padding: 5px;
+  font-size: 12px;
+}
+.input{
+    width: 100%;
+    font-size: 18px;
+    background: #fff;
+    padding: 5px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom: 1px solid var(--bs-border-color);
+    border-left-style: none;
+}
+.inputContainer{
+    margin: 20px auto;
+}
