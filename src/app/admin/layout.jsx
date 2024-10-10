@@ -1,9 +1,8 @@
 import { GeistSans } from 'geist/font/sans';
-import { ensureStartsWith } from 'lib/utils';
+import { ensureStartsWith } from '@/lib/utils';
 import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
-import '../globals.css';
 import { Input } from '@headlessui/react';
 
 
