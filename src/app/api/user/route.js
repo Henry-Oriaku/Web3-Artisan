@@ -33,11 +33,7 @@ export async function POST(
   })
 }
 
-export const config = {
-  api: {
-    bodyParser: false, // Disable the default body parser to handle form data
-  },
-};
+export const bodyParser = false; // Disable the default body parser to handle form dat
 
 // Handle PATCH requests
 export async function PATCH(request) {
