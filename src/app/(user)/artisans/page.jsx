@@ -2,13 +2,13 @@
 import { GiftIcon, KeyIcon, MagnifyingGlassIcon, ShieldExclamationIcon } from "@heroicons/react/24/outline";
 import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
-import GradientBg from "components/gradient-bg";
-import NavBar from "components/navbar";
-import ArtisanCard from "components/user/service/artisan-card";
+import GradientBg from "@/components/gradient-bg";
+import NavBar from "@/components/navbar";
+import ArtisanCard from "@/components/user/service/artisan-card";
 import { ConnectKitButton } from "connectkit";
 import Image from "next/image";
 import { useAccount } from "wagmi";
-import classes from '../../../assets/styles/style.module.css';
+import classes from '@/assets/styles/style.module.css';
 // export const metadata = {
 //   description: 'Web3 Artisans.',
 //   openGraph: {
