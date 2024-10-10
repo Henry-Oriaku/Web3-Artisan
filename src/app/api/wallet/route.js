@@ -1,5 +1,5 @@
 
-// 'use server'
+'use server'
 import apiResponseCode from '@/constants/apiResponseCode';
 import { failureResponse, successResponse, withValidation } from '@/lib/api';
 import { NextRequest } from 'next/server';
