@@ -1,19 +1,20 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import '../../../../assets/styles/dashboard.css';
+import '@/assets/styles/dashboard.css';
 import Image from 'next/image';
-import Avatar from 'components/Avatar/Avatar';
-import Footer from 'components/Dashboard/footer';
-import Sidebar from 'components/Dashboard/sidebar';
+import Avatar from '@/components/Avatar/Avatar';
+import Footer from '@/components/Dashboard/footer';
+import Sidebar from '@/components/Dashboard/sidebar';
+import { useAccountStore } from '@/store/accountStore';
 
 
 const LayoutContent = ({ children }) => {
     const [sideBarMobileVisible, setSideBarMobileVisible] = useState(false);
     const [collapsed, setCollapsed] = useState(false);
+    const { user } = useAccountStore();
     // stores
     // const { user, logout } = useAccountStore();
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
 
     useEffect(() => {
         setSideBarMobileVisible(false);
@@ -203,7 +204,7 @@ const LayoutContent = ({ children }) => {
                                                     <a className="btn" data-bs-toggle="dropdown"
                                                     >
                                                         <Avatar
-                                                            alt={user.name[0]}
+                                                            alt={user?.name[0] || ''}
                                                             size={100}
                                                             src=""
                                                         /></a>
@@ -211,38 +212,72 @@ const LayoutContent = ({ children }) => {
                                                         <div className="user_setting_content">
                                                             <p className="fz15 fw400 ff-heading mb10 pl30">Start</p>
                                                             <a className="dropdown-item active" href="/dashboard"
-                                                            ><i className="flaticon-home mr10"></i>Dashboard</a
-                                                            ><a className="dropdown-item" href="/proposal"
-                                                            ><i className="flaticon-document mr10"></i>My WOrks</a
-                                                            ><a className="dropdown-item" href="/saved"
-                                                            ><i className="flaticon-like mr10"></i>Saved</a
-                                                            ><a className="dropdown-item" href="/message"
-                                                            ><i className="flaticon-chat mr10"></i>Message</a
-                                                            ><a className="dropdown-item" href="/reviews"
-                                                            ><i className="flaticon-review-1 mr10"></i>Reviews</a
-                                                            ><a className="dropdown-item" href="/invoice"
-                                                            ><i className="flaticon-receipt mr10"></i>Invoice</a
-                                                            ><a className="dropdown-item" href="/payouts"
-                                                            ><i className="flaticon-dollar mr10"></i>Payouts</a
-                                                            ><a className="dropdown-item" href="/statements"
-                                                            ><i className="flaticon-web mr10"></i>Statements</a
+                                                            >
+                                                                <i className="flaticon-home mr10"></i>Dashboard</a
+                                                            >
+                                                            <a className="dropdown-item" href="/proposal"
+                                                            >
+                                                                <i className="flaticon-document mr10">
+                                                                </i>My WOrks</a
+                                                            >
+                                                            <a className="dropdown-item" href="/saved"
+                                                            >
+                                                                <i className="flaticon-like mr10">
+                                                                </i>Saved</a
+                                                            >
+                                                            <a className="dropdown-item" href="/message"
+                                                            >
+                                                                <i className="flaticon-chat mr10">
+                                                                </i>Message</a
+                                                            >
+                                                            <a className="dropdown-item" href="/reviews"
+                                                            >
+                                                                <i className="flaticon-review-1 mr10">
+                                                                </i>Reviews</a
+                                                            >
+                                                            <a className="dropdown-item" href="/invoice"
+                                                            >
+                                                                <i className="flaticon-receipt mr10">
+                                                                </i>Invoice</a
+                                                            >
+                                                            <a className="dropdown-item" href="/payouts"
+                                                            >
+                                                                <i className="flaticon-dollar mr10">
+                                                                </i>Payouts</a
+                                                            >
+                                                            <a className="dropdown-item" href="/statements"
+                                                            >
+                                                                <i className="flaticon-web mr10">
+                                                                </i>Statements</a
                                                             >
                                                             <p className="fz15 fw400 ff-heading mt30 pl30">
                                                                 Organize and Manage
                                                             </p>
                                                             <a className="dropdown-item" href="/manage-services"
-                                                            ><i className="flaticon-presentation mr10"></i>Manage
+                                                            >
+                                                                <i className="flaticon-presentation mr10">
+                                                                </i>Manage
                                                                 Services</a
-                                                            ><a className="dropdown-item" href="/manage-jobs"
-                                                            ><i className="flaticon-briefcase mr10"></i>Manage
+                                                            >
+                                                            <a className="dropdown-item" href="/manage-jobs"
+                                                            >
+                                                                <i className="flaticon-briefcase mr10">
+                                                                </i>Manage
                                                                 Jobs</a
-                                                            ><a className="dropdown-item" href="/manage-projects"
-                                                            ><i className="flaticon-content mr10"></i>Manage
+                                                            >
+                                                            <a className="dropdown-item" href="/manage-projects"
+                                                            >
+                                                                <i className="flaticon-content mr10">
+                                                                </i>Manage
                                                                 Project</a
-                                                            ><a className="dropdown-item" href="/add-services"
-                                                            ><i className="flaticon-document mr10"></i>Add
+                                                            >
+                                                            <a className="dropdown-item" href="/add-services"
+                                                            >
+                                                                <i className="flaticon-document mr10">
+                                                                </i>Add
                                                                 Services</a
-                                                            ><a className="dropdown-item" href="/create-projects"
+                                                            >
+                                                            <a className="dropdown-item" href="/create-projects"
                                                             ><i className="flaticon-content mr10"></i>Create
                                                                 Project</a
                                                             >

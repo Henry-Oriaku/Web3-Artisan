@@ -1,8 +1,7 @@
-import { Button, Card, Image, Input, Switch, Upload } from 'antd'
-import Title from 'antd/es/typography/Title'
-import React, { ReactNode, useState } from 'react'
+import { Button, Input, Switch, Upload } from 'antd'
+import { useState } from 'react'
 
-export default function AddEditService({ onAdded, onCancel }) {
+export default function AddEditWork({ onAdded, onCancel }) {
     const [service, setService] = useState({ description: '', title: '', image: '', negotiable: false, price: 0, imageFile: null })
 
     function updateService(key, value) {

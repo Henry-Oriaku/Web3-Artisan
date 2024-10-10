@@ -7,12 +7,15 @@ import webRoutes from '@/constants/webRoutes';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useAccount } from 'wagmi';
+import { useAccountStore } from '@/store/accountStore';
+import { useRequestStore } from '@/store/requestStore';
 
 export default function ClientLayout({ children }) {
     const router = useRouter();
     const currentPath = usePathname();
     const { address, isConnected } = useAccount();
-
+    const { setUser } = useAccountStore();
+    const { requests } = useRequestStore();
     useEffect(() => {
         const checkAccount = async () => {
             if (isConnected && address) {
@@ -24,7 +27,9 @@ export default function ClientLayout({ children }) {
                         ? webRoutes.completeSignup
                         : webRoutes.dashboard;
                     if (response.data?.code !== apiResponseCode.ACCOUNT_NOT_FOUND) {
-                        localStorage.setItem('user', JSON.stringify(response.data.data))
+                        setUser(response.data.data)
+                        console.log('user set');
+                        
                     }
 
                     if (currentPath != redirectTo) {
@@ -41,6 +46,7 @@ export default function ClientLayout({ children }) {
 
     return (
         <>
+            {requests > 0 && <Loader />}
             {children}
         </>
     );

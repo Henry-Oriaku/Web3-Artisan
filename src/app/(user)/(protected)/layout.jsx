@@ -1,5 +1,5 @@
 'use client'
-import withWallet from 'middleware/with-wallet'
+import withWallet from '@/middleware/with-wallet'
 import React, { ReactNode } from 'react'
 
 function Layout({ children }) {

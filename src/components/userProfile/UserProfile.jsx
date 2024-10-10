@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useUserStore } from "@/store/admin/userStore";
 import styles from "./UserProfile.module.css";
-import { Tabs } from "antd";
-import { InfinitySpin } from "react-loader-spinner";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import { Tabs } from "antd";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import { InfinitySpin } from "react-loader-spinner";
 import { formatAmount, formatDate } from "@/utils/formaters";
 import Avatar from "../Avatar/Avatar";
 import { User } from "@/interfaces";

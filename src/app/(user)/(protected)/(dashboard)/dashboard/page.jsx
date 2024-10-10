@@ -1,4 +1,7 @@
 "use client";
+import webRoutes from '@/constants/webRoutes';
+import { useAccountStore } from '@/store/accountStore';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAccount } from 'wagmi';
 
@@ -6,7 +9,7 @@ export default function Page() {
   const router = useRouter();
   const { address } = useAccount();
 
-  const user = JSON.parse(localStorage.getItem('user') || '{}')
+  const { user } = useAccountStore()
   return (
     <div className="dashboard__content hover-bgc-color">
       <div className="row pb40">
@@ -100,8 +103,9 @@ export default function Page() {
                   <p className="fz15 fw400 ff-heading mt30 pl30">Account</p>
                 </li>
                 <li className="">
-                  <a href="#"
-                  ><i className="flaticon-photo mr10"></i>My Profile</a
+                  <Link href={webRoutes.userProfile}
+                  >
+                    <i className="flaticon-photo mr10"></i>My Profile</Link
                   >
                 </li>
                 <li className="">
