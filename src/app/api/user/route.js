@@ -33,7 +33,7 @@ export async function POST(
   })
 }
 
-export const bodyParser = false; // Disable the default body parser to handle form dat
+//export const bodyParser = false; // Disable the default body parser to handle form dat
 
 // Handle PATCH requests
 export async function PATCH(request) {
