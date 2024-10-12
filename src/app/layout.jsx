@@ -4,6 +4,7 @@ import React, { ReactNode } from 'react'
 import '@/lib/api/axios'
 import './globals.css';
 import '@/assets/flaticon/flaticon.css'
+import '@/assets/mdi/css/materialdesignicons.min.css'
 import { Web3Provider } from '@/contexts/web3-provider';
 
 // import '../styles/theme.less';

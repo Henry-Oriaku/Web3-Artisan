@@ -29,10 +29,13 @@ export default function ClientLayout({ children }) {
                     if (response.data?.code !== apiResponseCode.ACCOUNT_NOT_FOUND) {
                         setUser(response.data.data)
                         console.log('user set');
-                        
+
                     }
 
                     if (currentPath != redirectTo) {
+                        if (redirectTo.includes("dashboard") && currentPath.includes("dashboard")) {
+                            return;
+                        }
                         router.push(redirectTo);
                     }
                 } catch (error) {

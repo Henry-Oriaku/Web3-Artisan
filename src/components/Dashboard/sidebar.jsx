@@ -1,3 +1,4 @@
+import webRoutes from '@/constants/webRoutes';
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import React from 'react'
@@ -34,7 +35,7 @@ export default function Sidebar() {
         { title: 'Account', },
         {
             label: 'My Profile',
-            link: '',
+            link: webRoutes.userProfile,
             icon: 'flaticon-photo'
         },
         {

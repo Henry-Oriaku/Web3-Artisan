@@ -1,14 +1,18 @@
 'use client'
 import AddEditWork from '@/components/user/service/add-edit-service'
 import apiUrl from '@/constants/apiUrl';
+import { validateForm } from '@/helpers/validator';
+import { useAccountStore } from '@/store/accountStore';
 import { Button, Input, Modal, Switch, Upload } from 'antd'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify';
+import { useAccount } from 'wagmi';
 
 export default function Page() {
     const { address } = useAccount();
     const [modalVisible, setModalVisible] = useState(false);
     const [modalTitle, setModalTitle] = useState("Add Previous Work");
+    const { user } = useAccountStore();
     const [newProfile, setProfile] = useState({
         name: '', email: '', walletAddress: address, isArtisan: false, featuredImage: null
     });
@@ -31,7 +35,7 @@ export default function Page() {
 
     useEffect(() => {
         validateForm('saveProfileBtn', '#profileForm');
-    }, [profile])
+    }, [newProfile])
     return (
         <div className="dashboard__content hover-bgc-color">
             <div className="row pb40">
@@ -148,26 +152,26 @@ export default function Page() {
             <div className="row">
                 <div className="flex-1 p-10">
 
-                    <div className="flex gap-4 flex-col mt-8" id='profileForm'>
+                    <div className="felx flex-wrap gap-4" id='profileForm'>
 
-                        <div>
-                            <Input autoComplete='true' name='name' required value={profile.name} onChange={(ev) => updateProfile('name', ev.target.value)} className="p-4" variant="outlined" placeholder='Full Name' />
+                        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6">
+                            <Input autoComplete='true' name='name' required value={newProfile.name} onChange={(ev) => updateProfile('name', ev.target.value)} className="p-4" variant="outlined" placeholder='Full Name' />
                         </div>
-                        <div>
-                            <Input autoComplete='true' name='email' type='email' required value={profile.email} onChange={(ev) => updateProfile('email', ev.target.value)} className="p-4" variant="outlined" placeholder='Enter Your Email' />
+                        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6">
+                            <Input autoComplete='true' name='email' type='email' required value={newProfile.email} onChange={(ev) => updateProfile('email', ev.target.value)} className="p-4" variant="outlined" placeholder='Enter Your Email' />
                         </div>
-                        <div>
+                        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6">
                             <div className='flex'>
 
                                 <Switch id='an_artisan' onChange={(checked) => { updateProfile('isArtisan', checked) }} />
                                 <label htmlFor='an_artisan'>I'm an Artisan</label>
                             </div>
-                            {profile.isArtisan && <Button size='small' onClick={() => setModalVisible(true)}>Add Works</Button>}
+                            {newProfile.isArtisan && <Button size='small' onClick={() => setModalVisible(true)}>Add Works</Button>}
                         </div>
 
-                        <Upload className='cursor-pointer' onChange={({ file }) => { updateProfile('featuredImage', file) }}>Featured Image</Upload>
 
-                        <div>
+                        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6">
+                            <Upload maxCount={1} className='cursor-pointer' onChange={({ file }) => { updateProfile('featuredImage', file) }}>Featured Image</Upload>
                         </div>
                         <Button className="text-base p-6 mt-4 bg-zinc-800 text-white" onClick={() => saveProfile()} id="saveProfileBtn">Submit</Button>
                     </div>

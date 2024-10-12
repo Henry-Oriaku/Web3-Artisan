@@ -4,10 +4,12 @@ import { useAccountStore } from '@/store/accountStore';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAccount } from 'wagmi';
+import {useState } from 'react'
 
 export default function Page() {
   const router = useRouter();
   const { address } = useAccount();
+  const [menuVisible, setMenuVisible] = useState(false)
 
   const { user } = useAccountStore()
   return (
@@ -17,9 +19,9 @@ export default function Page() {
           <div className="dashboard_navigationbar d-block d-lg-none">
             <div className="dropdown">
               <button className="dropbtn">
-                <i className="fa fa-bars pr10"></i> Dashboard Navigation
+                <i className="mdi mdi-menu pr10" onClick={() => setMenuVisible(!menuVisible)}></i> Dashboard Navigation
               </button>
-              <ul className="dropdown-content">
+              <ul className={`dropdown-content ${menuVisible && 'show'}`}>
                 <li>
                   <p className="fz15 fw400 ff-heading mt30 pl30">Start</p>
                 </li>
