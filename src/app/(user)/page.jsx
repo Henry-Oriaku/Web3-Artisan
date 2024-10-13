@@ -44,7 +44,7 @@ export default function HomePage() {
       least_price: '10',
       total_works: 0,
       user: {
-        name: 'John Doe',
+        name: 'Kings Footy',
         avatar: '/images/avatar.png'
       },
     }
