@@ -37,10 +37,10 @@ export default function HomePage() {
       },
     }
     , {
-      images: ['/images/image.png'],
+      images: ['https://w3stuffs.alwaysdata.net/uploads/footy1.png'],
       slug: 'footy',
       category: 'Shoes',
-      name: 'Strinc Tech Service',
+      name: 'Kings_footy',
       least_price: '10',
       total_works: 0,
       user: {
