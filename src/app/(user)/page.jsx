@@ -33,7 +33,7 @@ export default function HomePage() {
       total_works: 0,
       user: {
         name: 'Enog',
-        avatar: '/images/avatar.png'
+        avatar: 'https://w3stuffs.alwaysdata.net/uploads/enog.png'
       },
     }
     , {
@@ -45,7 +45,7 @@ export default function HomePage() {
       total_works: 0,
       user: {
         name: 'Kings Footy',
-        avatar: '/images/avatar.png'
+        avatar: 'https://w3stuffs.alwaysdata.net/uploads/footy1.png'
       },
     }
   ]
