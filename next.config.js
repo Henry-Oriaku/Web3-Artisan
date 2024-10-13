@@ -20,7 +20,7 @@ module.exports = withLess({
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'ng.jumia.is',
+        hostname: 'w3stuffs.alwaysdata.net',
         pathname: '/**'
       }
     ]
