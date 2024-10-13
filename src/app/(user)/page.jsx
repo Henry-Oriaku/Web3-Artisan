@@ -25,58 +25,24 @@ export default function HomePage() {
   ];
   const featuredArtisans = [
     {
-      images: ['/images/image.png'],
-      slug: 'string-tech',
-      category: 'Technology',
-      name: 'Strinc Tech Service',
-      least_price: '9000',
-      total_works: 10,
+      images: ['https://w3stuffs.alwaysdata.net/uploads/enog.png'],
+      slug: 'enog',
+      category: 'Beauty',
+      name: 'Enog Beuaty Service',
+      least_price: '5',
+      total_works: 0,
       user: {
-        name: 'John Doe',
+        name: 'Enog',
         avatar: '/images/avatar.png'
       },
     }
     , {
       images: ['/images/image.png'],
-      slug: 'string-tech',
-      category: 'Technology',
+      slug: 'footy',
+      category: 'Shoes',
       name: 'Strinc Tech Service',
-      least_price: '9000',
-      total_works: 10,
-      user: {
-        name: 'John Doe',
-        avatar: '/images/avatar.png'
-      },
-    },
-    {
-      images: ['/images/image.png'],
-      slug: 'string-tech',
-      category: 'Technology',
-      name: 'Strinc Tech Service',
-      least_price: '9000',
-      total_works: 10,
-      user: {
-        name: 'John Doe',
-        avatar: '/images/avatar.png'
-      },
-    }, {
-      images: ['/images/image.png'],
-      slug: 'string-tech',
-      category: 'Technology',
-      name: 'Strinc Tech Service',
-      least_price: '9000',
-      total_works: 10,
-      user: {
-        name: 'John Doe',
-        avatar: '/images/avatar.png'
-      },
-    }, {
-      images: ['/images/image.png'],
-      slug: 'string-tech',
-      category: 'Technology',
-      name: 'Strinc Tech Service',
-      least_price: '9000',
-      total_works: 10,
+      least_price: '10',
+      total_works: 0,
       user: {
         name: 'John Doe',
         avatar: '/images/avatar.png'
